@@ -7,7 +7,7 @@ export default function DownloadSection() {
   return (
     <section id="download" className="bg-[var(--color-charcoal)]">
       <div className="mx-auto flex max-w-[1536px] flex-col items-center gap-14 px-6 py-24 text-center sm:px-10 lg:flex-row lg:items-center lg:gap-20 lg:text-left">
-        <ScrollReveal className="w-full lg:w-[58%]">
+        <ScrollReveal direction="left" className="w-full lg:w-[58%]">
           <span className="text-xs font-semibold uppercase tracking-[1.5px] text-[var(--color-sand)]">
             Get the app
           </span>
@@ -47,7 +47,7 @@ export default function DownloadSection() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delayMs={150} className="flex flex-col items-center gap-3">
+        <ScrollReveal direction="right" delayMs={150} className="flex flex-col items-center gap-3">
           <div className="rounded-lg bg-white p-4">
             <Image src="/images/app-qr.svg" alt="QR code to download the MyCove app" width={168} height={168} />
           </div>

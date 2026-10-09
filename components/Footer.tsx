@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="mt-auto bg-[var(--color-forest)] text-white">
       <div className="mx-auto max-w-[1536px] px-6 py-16 sm:px-10">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <ScrollReveal>
+          <ScrollReveal direction="left">
             <div className="flex items-center gap-2.5">
               <Image src="/images/mycove-logo.png" alt="MyCove logo" width={32} height={30} className="h-8 w-auto brightness-0 invert" />
               <span className="text-lg font-bold">MyCove</span>
@@ -18,7 +18,7 @@ export default function Footer() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delayMs={80}>
+          <ScrollReveal direction="right" delayMs={80}>
             <p className="text-xs font-semibold uppercase tracking-[1px] text-white/50">Product</p>
             <ul className="mt-4 space-y-3 text-sm text-white/75">
               <li><Link href="/#how-it-works" className="hover:text-white">How it works</Link></li>
@@ -28,7 +28,7 @@ export default function Footer() {
             </ul>
           </ScrollReveal>
 
-          <ScrollReveal delayMs={160}>
+          <ScrollReveal direction="left" delayMs={160}>
             <p className="text-xs font-semibold uppercase tracking-[1px] text-white/50">Solutions</p>
             <ul className="mt-4 space-y-3 text-sm text-white/75">
               <li><span className="cursor-default">Dues &amp; payments</span></li>
@@ -38,7 +38,7 @@ export default function Footer() {
             </ul>
           </ScrollReveal>
 
-          <ScrollReveal delayMs={240}>
+          <ScrollReveal direction="right" delayMs={240}>
             <p className="text-xs font-semibold uppercase tracking-[1px] text-white/50">Contact</p>
             <ul className="mt-4 space-y-3 text-sm text-white/75">
               <li>

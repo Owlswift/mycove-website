@@ -14,7 +14,12 @@ export default function StatsBar() {
     <section className="mx-auto max-w-[1536px] px-10 py-16">
       <div className="grid grid-cols-2 gap-8 bg-[var(--color-forest)] px-8 py-10 sm:grid-cols-4">
         {stats.map(({ icon: Icon, value, label }, i) => (
-          <ScrollReveal key={label} delayMs={i * 100} className="group flex items-center gap-3.5">
+          <ScrollReveal
+            key={label}
+            direction={i % 2 === 0 ? "left" : "right"}
+            delayMs={i * 100}
+            className="group flex items-center gap-3.5"
+          >
             <Icon
               size={24}
               strokeWidth={1.5}

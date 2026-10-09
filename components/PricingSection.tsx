@@ -18,7 +18,7 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="mx-auto max-w-[1536px] px-6 py-24 sm:px-10">
       <div className="flex flex-col gap-12 lg:flex-row lg:gap-20">
-        <ScrollReveal className="w-full lg:w-[38%]">
+        <ScrollReveal direction="left" className="w-full lg:w-[38%]">
           <span className="text-xs font-semibold uppercase tracking-[1.5px] text-[var(--color-green)]">
             Pricing
           </span>
@@ -41,7 +41,7 @@ export default function PricingSection() {
 
         <div className="flex w-full flex-col lg:w-[62%]">
           {offerings.map((item, i) => (
-            <ScrollReveal key={item.title} delayMs={i * 100}>
+            <ScrollReveal key={item.title} direction="right" delayMs={i * 100}>
               <div
                 className={`flex flex-col gap-3 border-t border-[var(--color-border-primary)] py-9 sm:flex-row sm:items-start sm:gap-8 ${
                   i === offerings.length - 1 ? "border-b" : ""

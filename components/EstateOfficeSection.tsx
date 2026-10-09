@@ -28,7 +28,7 @@ export default function EstateOfficeSection() {
   return (
     <section className="mx-auto max-w-[1536px] px-6 py-20 sm:px-10">
       <div className="flex flex-col items-start gap-12 lg:flex-row lg:gap-20">
-        <ScrollReveal className="w-full lg:w-[42%]">
+        <ScrollReveal direction="left" className="w-full lg:w-[42%]">
           <h2 className="font-editorial text-[30px] font-medium leading-tight text-[var(--color-text-primary)] sm:text-[36px]">
             What actually changes for your estate office
           </h2>
@@ -49,7 +49,7 @@ export default function EstateOfficeSection() {
 
         <div className="flex w-full flex-col lg:w-[58%]">
           {items.map((item, i) => (
-            <ScrollReveal key={item.n} delayMs={i * 90}>
+            <ScrollReveal key={item.n} direction="right" delayMs={i * 90}>
               <div
                 className={`lift flex flex-col gap-2 border-t border-[var(--color-border-primary)] py-7 hover:bg-white/60 sm:flex-row sm:items-baseline sm:gap-8 ${
                   i === items.length - 1 ? "border-b" : ""

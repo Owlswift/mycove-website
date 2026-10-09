@@ -23,12 +23,12 @@ export default function WorkflowSection({
           reverse ? "lg:flex-row-reverse" : "lg:flex-row"
         }`}
       >
-        <ScrollReveal className="w-full lg:w-1/2">
+        <ScrollReveal direction={reverse ? "right" : "left"} className="w-full lg:w-1/2">
           <div className="photo-zoom lift relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-[var(--color-border-primary)]">
             <Image src={image} alt={alt} fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
           </div>
         </ScrollReveal>
-        <ScrollReveal delayMs={100} className="w-full lg:w-1/2">
+        <ScrollReveal direction={reverse ? "left" : "right"} delayMs={100} className="w-full lg:w-1/2">
           <span className="text-xs font-semibold uppercase tracking-[1.5px] text-[var(--color-green)]">
             {eyebrow}
           </span>

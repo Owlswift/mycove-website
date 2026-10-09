@@ -46,7 +46,7 @@ export default function ContactSection() {
     <section id="contact" className="mx-auto max-w-[1536px] px-6 py-24 sm:px-10">
       <div className="flex flex-col gap-14 lg:flex-row lg:gap-24">
         <div className="w-full lg:w-[36%]">
-          <ScrollReveal>
+          <ScrollReveal direction="left">
             <span className="text-xs font-semibold uppercase tracking-[1.5px] text-[var(--color-green)]">
               Get in touch
             </span>
@@ -59,7 +59,7 @@ export default function ContactSection() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delayMs={150}>
+          <ScrollReveal direction="left" delayMs={150}>
             <dl className="mt-12 space-y-6 border-t border-[var(--color-border-primary)] pt-8">
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Email</dt>
@@ -81,7 +81,7 @@ export default function ContactSection() {
           </ScrollReveal>
         </div>
 
-        <ScrollReveal delayMs={100} className="w-full lg:w-[64%]">
+        <ScrollReveal direction="right" delayMs={100} className="w-full lg:w-[64%]">
           {status === "success" ? (
             <div className="flex flex-col items-start border-t border-[var(--color-border-primary)] pt-10">
               <CheckCircle2 size={30} className="text-[var(--color-forest)]" strokeWidth={1.5} />

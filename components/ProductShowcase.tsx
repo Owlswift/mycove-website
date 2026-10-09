@@ -5,7 +5,7 @@ export default function ProductShowcase() {
   return (
     <section className="bg-[var(--color-sand)]">
       <div className="mx-auto flex max-w-[1536px] flex-col items-center gap-14 px-6 py-20 sm:px-10 lg:flex-row lg:items-center lg:gap-20">
-        <ScrollReveal className="w-full lg:w-1/2">
+        <ScrollReveal direction="left" className="w-full lg:w-1/2">
           <span className="text-xs font-semibold uppercase tracking-[1.5px] text-[var(--color-green)]">
             The resident app
           </span>
@@ -19,7 +19,7 @@ export default function ProductShowcase() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delayMs={100} className="flex w-full justify-center lg:w-1/2">
+        <ScrollReveal direction="right" delayMs={100} className="flex w-full justify-center lg:w-1/2">
           <HeroPhone />
         </ScrollReveal>
       </div>

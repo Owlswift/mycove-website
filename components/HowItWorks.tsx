@@ -33,7 +33,12 @@ export default function HowItWorks() {
           className="absolute left-0 right-0 top-[25px] hidden h-px bg-[var(--color-border-secondary)] sm:block"
         />
         {steps.map((step, i) => (
-          <ScrollReveal key={step.n} delayMs={i * 120} className="group relative text-center">
+          <ScrollReveal
+            key={step.n}
+            direction={i % 2 === 0 ? "left" : "right"}
+            delayMs={i * 120}
+            className="group relative text-center"
+          >
             <div className="lift relative z-10 mx-auto flex h-[50px] w-[50px] items-center justify-center rounded-full border border-[var(--color-forest)] bg-[var(--color-page-bg)] font-editorial text-[18px] text-[var(--color-forest)] group-hover:bg-[var(--color-forest)] group-hover:text-white">
               {step.n}
             </div>

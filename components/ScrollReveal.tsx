@@ -13,11 +13,14 @@ export default function ScrollReveal({
   delayMs = 0,
   className = "",
   style,
+  direction = "left",
 }: {
   children: React.ReactNode;
   delayMs?: number;
   className?: string;
   style?: React.CSSProperties;
+  /** Which side the element visibly slides in from. */
+  direction?: "left" | "right" | "up";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -39,7 +42,11 @@ export default function ScrollReveal({
   }, [delayMs]);
 
   return (
-    <div ref={ref} className={`reveal ${visible ? "is-visible" : ""} ${className}`} style={style}>
+    <div
+      ref={ref}
+      className={`reveal reveal-${direction} ${visible ? "is-visible" : ""} ${className}`}
+      style={style}
+    >
       {children}
     </div>
   );
