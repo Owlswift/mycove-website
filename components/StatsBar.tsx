@@ -1,4 +1,6 @@
 import { Building2, Users, ShieldCheck, Star } from "lucide-react";
+import CountUp from "./CountUp";
+import ScrollReveal from "./ScrollReveal";
 
 const stats = [
   { icon: Building2, value: "10+", label: "Estates Connected" },
@@ -10,24 +12,23 @@ const stats = [
 export default function StatsBar() {
   return (
     <section className="mx-auto max-w-[1536px] px-10 py-16">
-      <div
-        className="grid grid-cols-2 gap-8 rounded-[14px] px-8 py-10 shadow-[0_14px_30px_rgba(6,77,53,0.12)] sm:grid-cols-4"
-        style={{
-          background: "linear-gradient(90deg, #064d35, #0a4a35)",
-        }}
-      >
+      <ScrollReveal className="grid grid-cols-2 gap-8 bg-[var(--color-forest)] px-8 py-10 sm:grid-cols-4">
         {stats.map(({ icon: Icon, value, label }) => (
-          <div key={label} className="flex items-center gap-3.5">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15">
-              <Icon size={18} className="text-white" />
-            </span>
+          <div key={label} className="group flex items-center gap-3.5">
+            <Icon
+              size={24}
+              strokeWidth={1.5}
+              className="shrink-0 text-white/70 transition-transform duration-300 group-hover:scale-110 group-hover:text-white"
+            />
             <div>
-              <p className="text-[23px] font-bold text-white">{value}</p>
+              <p className="text-[23px] font-bold text-white">
+                <CountUp value={value} />
+              </p>
               <p className="text-xs text-white/82">{label}</p>
             </div>
           </div>
         ))}
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

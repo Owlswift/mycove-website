@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const links = [
   { label: "Home", href: "/" },
-  { label: "Features", href: "/#features" },
+  { label: "How it works", href: "/#how-it-works" },
   { label: "Pricing", href: "/#pricing" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -44,7 +44,7 @@ export default function Navbar() {
 
         <Link
           href="/#contact"
-          className="shrink-0 rounded-[22px] bg-[var(--color-primary-deep)] px-3.5 py-2 text-xs font-semibold text-white sm:px-[22px] sm:py-[10px] sm:text-[13px]"
+          className="lift shrink-0 rounded-md bg-[var(--color-forest)] px-3.5 py-2 text-xs font-semibold text-white hover:bg-[var(--color-green)] sm:px-[22px] sm:py-[10px] sm:text-[13px]"
         >
           <span className="sm:hidden">Demo</span>
           <span className="hidden sm:inline">Request a Demo</span>

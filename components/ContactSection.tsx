@@ -1,10 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, CheckCircle2, Loader2 } from "lucide-react";
+import { CheckCircle2, Loader2 } from "lucide-react";
 import { API_BASE_URL } from "@/lib/api";
+import ScrollReveal from "./ScrollReveal";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const fieldClass =
+  "border-0 border-b border-[var(--color-border-secondary)] bg-transparent px-0 py-3 text-[15px] text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-forest)]";
 
 export default function ContactSection() {
   const [name, setName] = useState("");
@@ -39,158 +43,134 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="mx-auto max-w-[1536px] px-6 py-16 sm:px-10">
-      <div className="text-center">
-        <span className="inline-flex items-center rounded-2xl bg-[var(--color-soft-surface)] px-[13px] py-[6px] text-xs font-medium text-[#35604d]">
-          Get In Touch
-        </span>
-        <h2 className="mx-auto mt-4 max-w-2xl text-[29px] font-bold leading-9 tracking-[-0.5px] text-[var(--color-text-primary)]">
-          Request a Demo or Get in Touch
-        </h2>
-        <p className="mx-auto mt-3 max-w-lg text-sm text-[var(--color-text-secondary)]">
-          Tell us about your estate and we&apos;ll get back to you shortly.
-        </p>
-      </div>
+    <section id="contact" className="mx-auto max-w-[1536px] px-6 py-24 sm:px-10">
+      <div className="flex flex-col gap-14 lg:flex-row lg:gap-24">
+        <ScrollReveal className="w-full lg:w-[36%]">
+          <span className="text-xs font-semibold uppercase tracking-[1.5px] text-[var(--color-green)]">
+            Get in touch
+          </span>
+          <h2 className="font-editorial mt-4 max-w-[360px] text-[32px] font-medium leading-[1.15] text-[var(--color-text-primary)] sm:text-[38px]">
+            Tell us about your estate.
+          </h2>
+          <p className="mt-5 max-w-[340px] text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">
+            We&apos;ll get back to you shortly with next steps and a quote
+            built around what you actually need.
+          </p>
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.4fr]">
-        <div className="space-y-5">
-          <div className="flex items-start gap-3.5 rounded-[14px] border border-[var(--color-border-primary)] bg-white/55 p-5">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-soft-surface)]">
-              <Mail size={18} className="text-[var(--color-primary-deep)]" />
-            </span>
+          <dl className="mt-12 space-y-6 border-t border-[var(--color-border-primary)] pt-8">
             <div>
-              <p className="text-sm font-bold text-[var(--color-text-primary)]">Email</p>
-              <a
-                href="mailto:info@zsolutionsit.com"
-                className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary-deep)]"
+              <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Email</dt>
+              <dd className="mt-1">
+                <a href="mailto:info@zsolutionsit.com" className="text-[15px] text-[var(--color-text-primary)] hover:text-[var(--color-forest)]">
+                  info@zsolutionsit.com
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Phone</dt>
+              <dd className="mt-1 text-[15px] text-[var(--color-text-primary)]">+234 706 427 4313</dd>
+            </div>
+            <div>
+              <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Based in</dt>
+              <dd className="mt-1 text-[15px] text-[var(--color-text-primary)]">Nigeria</dd>
+            </div>
+          </dl>
+        </ScrollReveal>
+
+        <ScrollReveal delayMs={100} className="w-full lg:w-[64%]">
+          {status === "success" ? (
+            <div className="flex flex-col items-start border-t border-[var(--color-border-primary)] pt-10">
+              <CheckCircle2 size={30} className="text-[var(--color-forest)]" strokeWidth={1.5} />
+              <p className="mt-4 text-lg font-semibold text-[var(--color-text-primary)]">Message sent</p>
+              <p className="mt-1.5 max-w-sm text-sm text-[var(--color-text-secondary)]">
+                Thanks for reaching out — we&apos;ve received your message
+                and will get back to you shortly.
+              </p>
+              <button
+                onClick={() => setStatus("idle")}
+                className="mt-6 text-sm font-semibold text-[var(--color-forest)] underline underline-offset-4 hover:text-[var(--color-green)]"
               >
-                info@zsolutionsit.com
-              </a>
+                Send another message
+              </button>
             </div>
-          </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="border-t border-[var(--color-border-primary)] pt-10">
+              <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="name" className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">
+                    Full name
+                  </label>
+                  <input
+                    id="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Jane Doe"
+                    className={fieldClass}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="email" className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">
+                    Email address
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="jane@estate.com"
+                    className={fieldClass}
+                  />
+                </div>
+              </div>
 
-          <div className="flex items-start gap-3.5 rounded-[14px] border border-[var(--color-border-primary)] bg-white/55 p-5">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-soft-surface)]">
-              <Phone size={18} className="text-[var(--color-primary-deep)]" />
-            </span>
-            <div>
-              <p className="text-sm font-bold text-[var(--color-text-primary)]">Phone</p>
-              <p className="text-sm text-[var(--color-text-secondary)]">+234 706 427 4313</p>
-            </div>
-          </div>
+              <div className="mt-7 flex flex-col gap-1.5">
+                <label htmlFor="estate" className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">
+                  Estate / community name
+                </label>
+                <input
+                  id="estate"
+                  value={estate}
+                  onChange={(e) => setEstate(e.target.value)}
+                  placeholder="Greenwood Estate"
+                  className={fieldClass}
+                />
+              </div>
 
-          <div className="flex items-start gap-3.5 rounded-[14px] border border-[var(--color-border-primary)] bg-white/55 p-5">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-soft-surface)]">
-              <MapPin size={18} className="text-[var(--color-primary-deep)]" />
-            </span>
-            <div>
-              <p className="text-sm font-bold text-[var(--color-text-primary)]">Based in</p>
-              <p className="text-sm text-[var(--color-text-secondary)]">Nigeria</p>
-            </div>
-          </div>
-        </div>
+              <div className="mt-7 flex flex-col gap-1.5">
+                <label htmlFor="message" className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  required
+                  rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Tell us a bit about your estate and what you're looking for..."
+                  className={`resize-none ${fieldClass}`}
+                />
+              </div>
 
-        {status === "success" ? (
-          <div className="flex flex-col items-center justify-center rounded-[14px] border border-[var(--color-border-primary)] bg-white/55 p-6 text-center sm:p-8">
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-soft-surface)]">
-              <CheckCircle2 size={28} className="text-[var(--color-primary-deep)]" />
-            </span>
-            <p className="mt-4 text-lg font-bold text-[var(--color-text-primary)]">
-              Message sent
-            </p>
-            <p className="mt-1.5 max-w-sm text-sm text-[var(--color-text-secondary)]">
-              Thanks for reaching out — we&apos;ve received your message and
-              will get back to you shortly.
-            </p>
-            <button
-              onClick={() => setStatus("idle")}
-              className="mt-6 rounded-[10px] border border-[var(--color-border-secondary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-primary)]"
-            >
-              Send another message
-            </button>
-          </div>
-        ) : (
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-[14px] border border-[var(--color-border-primary)] bg-white/55 p-6 sm:p-8"
-        >
-          <div className="grid gap-5 sm:grid-cols-2">
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="name" className="text-sm font-semibold text-[var(--color-text-primary)]">
-                Full name
-              </label>
-              <input
-                id="name"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Jane Doe"
-                className="rounded-[10px] border border-[var(--color-border-secondary)] bg-white px-4 py-3 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary-deep)]"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="email" className="text-sm font-semibold text-[var(--color-text-primary)]">
-                Email address
-              </label>
-              <input
-                id="email"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="jane@estate.com"
-                className="rounded-[10px] border border-[var(--color-border-secondary)] bg-white px-4 py-3 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary-deep)]"
-              />
-            </div>
-          </div>
+              {status === "error" && (
+                <p className="mt-4 text-sm font-medium text-red-600">
+                  Something went wrong sending your message. Please try
+                  again, or email us directly.
+                </p>
+              )}
 
-          <div className="mt-5 flex flex-col gap-1.5">
-            <label htmlFor="estate" className="text-sm font-semibold text-[var(--color-text-primary)]">
-              Estate / community name
-            </label>
-            <input
-              id="estate"
-              value={estate}
-              onChange={(e) => setEstate(e.target.value)}
-              placeholder="Greenwood Estate"
-              className="rounded-[10px] border border-[var(--color-border-secondary)] bg-white px-4 py-3 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary-deep)]"
-            />
-          </div>
-
-          <div className="mt-5 flex flex-col gap-1.5">
-            <label htmlFor="message" className="text-sm font-semibold text-[var(--color-text-primary)]">
-              Message
-            </label>
-            <textarea
-              id="message"
-              required
-              rows={5}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Tell us a bit about your estate and what you're looking for..."
-              className="resize-none rounded-[10px] border border-[var(--color-border-secondary)] bg-white px-4 py-3 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary-deep)]"
-            />
-          </div>
-
-          {status === "error" && (
-            <p className="mt-4 text-sm font-medium text-red-600">
-              Something went wrong sending your message. Please try again, or
-              email us directly.
-            </p>
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                className="lift mt-9 flex items-center gap-2 rounded-md bg-[var(--color-forest)] px-6 py-[14px] text-[15px] font-semibold text-white hover:bg-[var(--color-green)] disabled:opacity-60"
+              >
+                {status === "submitting" && <Loader2 size={16} className="animate-spin" />}
+                {status === "submitting" ? "Sending..." : "Send message"}
+              </button>
+            </form>
           )}
-
-          <button
-            type="submit"
-            disabled={status === "submitting"}
-            className="mt-6 flex items-center gap-2 rounded-[10px] bg-[var(--color-primary-deep)] px-6 py-[14px] text-[15px] font-semibold text-white shadow-[0_8px_18px_rgba(6,77,53,0.18)] disabled:opacity-60"
-          >
-            {status === "submitting" && (
-              <Loader2 size={16} className="animate-spin" />
-            )}
-            {status === "submitting" ? "Sending..." : "Send Message"}
-          </button>
-        </form>
-        )}
+        </ScrollReveal>
       </div>
     </section>
   );

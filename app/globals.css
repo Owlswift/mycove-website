@@ -1,29 +1,97 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary-deep: #064d35;
-  --color-primary-dark: #0b513b;
-  --color-secondary-green: #16724f;
-  --color-accent-green: #2f8f63;
+  /* Premium estate × smart security palette, per brand direction. */
+  --color-forest: #183d32;
+  --color-green: #28594a;
+  --color-ivory: #f5f2ea;
+  --color-sand: #d8cbb5;
+  --color-charcoal: #222923;
 
-  --color-page-bg: #f7f8f5;
-  --color-soft-surface: #eef5ef;
-  --color-light-surface: #f2f5f2;
+  /* Legacy token names kept so existing components don't need a mass
+     rename — mapped onto the new palette. */
+  --color-primary-deep: var(--color-forest);
+  --color-primary-dark: var(--color-green);
+  --color-secondary-green: var(--color-green);
+  --color-accent-green: #3f7a63;
 
-  --color-text-primary: #172a23;
-  --color-text-secondary: #53605b;
-  --color-text-muted: #69746f;
+  --color-page-bg: var(--color-ivory);
+  --color-soft-surface: #ece6d6;
+  --color-light-surface: #efe9db;
+  --color-warm-surface: var(--color-sand);
 
-  --color-border-primary: #e3e9e4;
-  --color-border-secondary: #d9e3dd;
+  --color-text-primary: var(--color-charcoal);
+  --color-text-secondary: #55594f;
+  --color-text-muted: #767a6c;
+
+  --color-border-primary: #e2dac6;
+  --color-border-secondary: #d3c7ac;
 }
 
 @theme inline {
   --font-sans: var(--font-manrope);
+  --font-serif: var(--font-fraunces);
 }
 
 body {
   background: var(--color-page-bg);
   color: var(--color-text-primary);
   font-family: var(--font-manrope), Arial, sans-serif;
+}
+
+h1, h2, h3, .font-editorial {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+/* Scroll-reveal: sections fade/slide into place as they enter the
+   viewport (see components/ScrollReveal.tsx). Content is fully visible
+   with no JS, and motion backs off entirely for anyone who's asked for
+   that. */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Shared "alive" interaction: a restrained lift on hover/focus — used on
+   buttons, cards and photo blocks. */
+.lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+.lift:hover, .lift:focus-visible {
+  transform: translateY(-3px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lift { transition: none; }
+  .lift:hover, .lift:focus-visible { transform: none; }
+}
+
+/* Slow, subtle zoom on a photo block's image when its wrapper is
+   hovered — the one piece of "tasteful motion" the brief calls for on
+   photography, never a gradient or glow. */
+.photo-zoom {
+  overflow: hidden;
+}
+.photo-zoom img {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.photo-zoom:hover img {
+  transform: scale(1.045);
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-zoom img { transition: none; }
+  .photo-zoom:hover img { transform: none; }
 }
