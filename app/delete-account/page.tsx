@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PolicyLayout from "@/components/PolicyLayout";
 
 export const metadata: Metadata = {
-  title: "Delete Your Account — MyCove",
+  title: "Delete Your Account | MyCove",
   description: "How to request deletion of your MyCove account and data.",
 };
 
@@ -48,7 +48,7 @@ export default function DeleteAccountPage() {
         <p className="mt-3">Once verified, we permanently delete:</p>
         <ul className="mt-3 list-disc space-y-2 pl-5">
           <li>
-            Your profile — name, phone number, email, house/unit, emergency
+            Your profile: name, phone number, email, house/unit, emergency
             contact, vehicle plates
           </li>
           <li>Your login credentials and transaction PIN</li>
@@ -68,18 +68,18 @@ export default function DeleteAccountPage() {
         <ul className="mt-3 list-disc space-y-2 pl-5">
           <li>
             <strong className="text-[var(--color-text-primary)]">
-              Dues, levy, and utility purchase records
+              Dues, levy, and utility purchase records:
             </strong>{" "}
-            — kept for a reasonable period to meet accounting and legal
+            kept for a reasonable period to meet accounting and legal
             obligations, and because they form part of your estate&apos;s
             financial ledger, shared with other residents&apos; records.
             These are retained in a de-identified form where possible.
           </li>
           <li>
             <strong className="text-[var(--color-text-primary)]">
-              Visitor pass and access-log entries you created
+              Visitor pass and access-log entries you created:
             </strong>{" "}
-            — kept as part of the estate&apos;s security record.
+            kept as part of the estate&apos;s security record.
           </li>
         </ul>
       </section>

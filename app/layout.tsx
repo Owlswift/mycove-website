@@ -17,9 +17,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "MyCove — Your Estate. Your Community. One App.",
+  title: "MyCove | Your Estate. Your Community. One App.",
   description:
-    "MyCove helps estates and gated communities stay connected, organized and secure — all in one simple app.",
+    "MyCove helps estates and gated communities stay connected, organized and secure, all in one simple app.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

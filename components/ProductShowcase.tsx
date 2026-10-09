@@ -13,7 +13,7 @@ export default function ProductShowcase() {
             The same app every resident already has open.
           </h2>
           <p className="mt-5 max-w-[420px] text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">
-            Dues, visitor passes, announcements, complaints — a resident's
+            Dues, visitor passes, announcements, complaints: a resident's
             whole relationship with their estate, in one screen, not spread
             across five WhatsApp groups and a notebook at the gate.
           </p>

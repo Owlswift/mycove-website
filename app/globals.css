@@ -37,6 +37,12 @@ body {
   background: var(--color-page-bg);
   color: var(--color-text-primary);
   font-family: var(--font-manrope), Arial, sans-serif;
+  /* A bit bolder than browser-normal (400) across the board — body copy
+     sitting over the photo backdrops (Hero, the pinned estate-aerial
+     section) needs the extra weight to stay legible, and it reads fine
+     everywhere else too. Elements with their own explicit font-weight
+     class (headings, buttons) aren't affected. */
+  font-weight: 500;
 }
 
 h1, h2, h3, .font-editorial {

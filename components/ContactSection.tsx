@@ -45,37 +45,41 @@ export default function ContactSection() {
   return (
     <section id="contact" className="mx-auto max-w-[1536px] px-6 py-24 sm:px-10">
       <div className="flex flex-col gap-14 lg:flex-row lg:gap-24">
-        <ScrollReveal className="w-full lg:w-[36%]">
-          <span className="text-xs font-semibold uppercase tracking-[1.5px] text-[var(--color-green)]">
-            Get in touch
-          </span>
-          <h2 className="font-editorial mt-4 max-w-[360px] text-[32px] font-medium leading-[1.15] text-[var(--color-text-primary)] sm:text-[38px]">
-            Tell us about your estate.
-          </h2>
-          <p className="mt-5 max-w-[340px] text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">
-            We&apos;ll get back to you shortly with next steps and a quote
-            built around what you actually need.
-          </p>
+        <div className="w-full lg:w-[36%]">
+          <ScrollReveal>
+            <span className="text-xs font-semibold uppercase tracking-[1.5px] text-[var(--color-green)]">
+              Get in touch
+            </span>
+            <h2 className="font-editorial mt-4 max-w-[360px] text-[32px] font-medium leading-[1.15] text-[var(--color-text-primary)] sm:text-[38px]">
+              Tell us about your estate.
+            </h2>
+            <p className="mt-5 max-w-[340px] text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">
+              We&apos;ll get back to you shortly with next steps and a quote
+              built around what you actually need.
+            </p>
+          </ScrollReveal>
 
-          <dl className="mt-12 space-y-6 border-t border-[var(--color-border-primary)] pt-8">
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Email</dt>
-              <dd className="mt-1">
-                <a href="mailto:info@zsolutionsit.com" className="text-[15px] text-[var(--color-text-primary)] hover:text-[var(--color-forest)]">
-                  info@zsolutionsit.com
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Phone</dt>
-              <dd className="mt-1 text-[15px] text-[var(--color-text-primary)]">+234 706 427 4313</dd>
-            </div>
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Based in</dt>
-              <dd className="mt-1 text-[15px] text-[var(--color-text-primary)]">Nigeria</dd>
-            </div>
-          </dl>
-        </ScrollReveal>
+          <ScrollReveal delayMs={150}>
+            <dl className="mt-12 space-y-6 border-t border-[var(--color-border-primary)] pt-8">
+              <div>
+                <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Email</dt>
+                <dd className="mt-1">
+                  <a href="mailto:info@zsolutionsit.com" className="text-[15px] text-[var(--color-text-primary)] hover:text-[var(--color-forest)]">
+                    info@zsolutionsit.com
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Phone</dt>
+                <dd className="mt-1 text-[15px] text-[var(--color-text-primary)]">+234 706 427 4313</dd>
+              </div>
+              <div>
+                <dt className="text-xs font-semibold uppercase tracking-[1px] text-[var(--color-text-muted)]">Based in</dt>
+                <dd className="mt-1 text-[15px] text-[var(--color-text-primary)]">Nigeria</dd>
+              </div>
+            </dl>
+          </ScrollReveal>
+        </div>
 
         <ScrollReveal delayMs={100} className="w-full lg:w-[64%]">
           {status === "success" ? (
@@ -83,7 +87,7 @@ export default function ContactSection() {
               <CheckCircle2 size={30} className="text-[var(--color-forest)]" strokeWidth={1.5} />
               <p className="mt-4 text-lg font-semibold text-[var(--color-text-primary)]">Message sent</p>
               <p className="mt-1.5 max-w-sm text-sm text-[var(--color-text-secondary)]">
-                Thanks for reaching out — we&apos;ve received your message
+                Thanks for reaching out. We&apos;ve received your message
                 and will get back to you shortly.
               </p>
               <button

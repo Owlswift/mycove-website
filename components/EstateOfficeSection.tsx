@@ -5,12 +5,12 @@ const items = [
   {
     n: "01",
     title: "Dues collect themselves",
-    body: "Residents pay from the app, the ledger updates instantly, and reminders go out on a schedule — no spreadsheet, no chasing.",
+    body: "Residents pay from the app, the ledger updates instantly, and reminders go out on a schedule, with no spreadsheet and no chasing.",
   },
   {
     n: "02",
     title: "The gate knows who's owing",
-    body: "Vehicle and pedestrian gates check a resident's tag against their balance and respond in real time — no admin on standby.",
+    body: "Vehicle and pedestrian gates check a resident's tag against their balance and respond in real time, with no admin on standby.",
   },
   {
     n: "03",

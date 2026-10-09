@@ -4,12 +4,12 @@ const steps = [
   {
     n: "1",
     title: "We load your residents",
-    body: "Your existing resident list and dues history, imported — nobody re-registers from scratch.",
+    body: "Your existing resident list and dues history, imported. Nobody re-registers from scratch.",
   },
   {
     n: "2",
     title: "Guards get a short training",
-    body: "An hour at the gate post — checking a visitor pass or an RFID tag, nothing more technical than that.",
+    body: "An hour at the gate post: checking a visitor pass or an RFID tag, nothing more technical than that.",
   },
   {
     n: "3",

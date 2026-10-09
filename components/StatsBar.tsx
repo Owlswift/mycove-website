@@ -12,9 +12,9 @@ const stats = [
 export default function StatsBar() {
   return (
     <section className="mx-auto max-w-[1536px] px-10 py-16">
-      <ScrollReveal className="grid grid-cols-2 gap-8 bg-[var(--color-forest)] px-8 py-10 sm:grid-cols-4">
-        {stats.map(({ icon: Icon, value, label }) => (
-          <div key={label} className="group flex items-center gap-3.5">
+      <div className="grid grid-cols-2 gap-8 bg-[var(--color-forest)] px-8 py-10 sm:grid-cols-4">
+        {stats.map(({ icon: Icon, value, label }, i) => (
+          <ScrollReveal key={label} delayMs={i * 100} className="group flex items-center gap-3.5">
             <Icon
               size={24}
               strokeWidth={1.5}
@@ -26,9 +26,9 @@ export default function StatsBar() {
               </p>
               <p className="text-xs text-white/82">{label}</p>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
-      </ScrollReveal>
+      </div>
     </section>
   );
 }

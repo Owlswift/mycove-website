@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import PolicyLayout from "@/components/PolicyLayout";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — MyCove",
-  description: "MyCove's privacy policy — what we collect, why, and how it's protected.",
+  title: "Privacy Policy | MyCove",
+  description: "MyCove's privacy policy: what we collect, why, and how it's protected.",
 };
 
 const rows: { category: string; detail: string }[] = [
@@ -15,7 +15,7 @@ const rows: { category: string; detail: string }[] = [
   {
     category: "Authentication",
     detail:
-      "Your password and transaction PIN, both stored only as irreversible cryptographic hashes — we cannot see or recover the original value.",
+      "Your password and transaction PIN, both stored only as irreversible cryptographic hashes. We cannot see or recover the original value.",
   },
   {
     category: "Biometric unlock",
@@ -25,7 +25,7 @@ const rows: { category: string; detail: string }[] = [
   {
     category: "Voice assistant",
     detail:
-      "Your device converts speech to text locally. We only receive and store the resulting text transcript, the recognized command, and the assistant's response — never raw audio.",
+      "Your device converts speech to text locally. We only receive and store the resulting text transcript, the recognized command, and the assistant's response, never raw audio.",
   },
   {
     category: "Transactions",
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
         </h2>
         <ul className="mt-3 list-disc space-y-2 pl-5">
           <li>
-            To operate core features — authentication, dues/levy tracking,
+            To operate core features: authentication, dues/levy tracking,
             utility purchases, visitor passes, meetings, notices,
             complaints, and the voice assistant.
           </li>
@@ -108,21 +108,21 @@ export default function PrivacyPage() {
         <ul className="mt-3 list-disc space-y-2 pl-5">
           <li>
             <strong className="text-[var(--color-text-primary)]">
-              Your estate&apos;s administrators and security desk
+              Your estate&apos;s administrators and security desk:
             </strong>{" "}
-            — resident, visitor, and dues/levy information relevant to
+            resident, visitor, and dues/levy information relevant to
             running that estate.
           </li>
           <li>
-            <strong className="text-[var(--color-text-primary)]">Firebase (Google)</strong> — to
+            <strong className="text-[var(--color-text-primary)]">Firebase (Google):</strong> to
             deliver push notifications.
           </li>
           <li>
-            <strong className="text-[var(--color-text-primary)]">Mixpanel</strong> — for product
+            <strong className="text-[var(--color-text-primary)]">Mixpanel:</strong> for product
             analytics, on both the app and our servers.
           </li>
           <li>
-            <strong className="text-[var(--color-text-primary)]">VTpass / BuyPower</strong> — the
+            <strong className="text-[var(--color-text-primary)]">VTpass / BuyPower:</strong> the
             phone number or meter number needed to complete an airtime or
             electricity purchase you request.
           </li>

@@ -5,12 +5,12 @@ const offerings = [
   {
     icon: Code2,
     title: "Software",
-    body: "The resident app, admin dashboard, dues and levies, visitor passes, announcements and everything else your estate runs on — priced to fit your estate's size and needs.",
+    body: "The resident app, admin dashboard, dues and levies, visitor passes, announcements and everything else your estate runs on, priced to fit your estate's size and needs.",
   },
   {
     icon: DoorClosed,
     title: "Smart gate access control",
-    body: "Boom barriers, RFID vehicle and pedestrian terminals, solar power and installation — specified and quoted around your entrances.",
+    body: "Boom barriers, RFID vehicle and pedestrian terminals, solar power and installation, specified and quoted around your entrances.",
   },
 ];
 

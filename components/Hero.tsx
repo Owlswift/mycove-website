@@ -6,8 +6,8 @@ export default function Hero() {
     <section className="relative">
       <div className="relative h-[640px] w-full sm:h-[720px]">
         <Image
-          src="/images/photos/vehicle-gate.png"
-          alt="A resident's car waved through a MyCove-equipped estate gate, barrier raised, gatehouse and homes behind it"
+          src="/images/photos/estate-entrance-hero.png"
+          alt="A resident's car approaching a MyCove-equipped estate gate, barrier raised, branded gatehouse and homes behind it"
           fill
           priority
           className="object-cover"
@@ -26,11 +26,15 @@ export default function Hero() {
             <h1 className="font-editorial max-w-[640px] text-[40px] font-medium italic leading-[1.1] tracking-[-0.5px] text-white sm:text-[58px]">
               Built for the estates we grew up in.
             </h1>
+          </ScrollReveal>
+          <ScrollReveal delayMs={120}>
             <p className="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/85">
-              Not a generic SaaS tool — MyCove runs the dues, the gate, and
+              Not a generic SaaS tool. MyCove runs the dues, the gate, and
               the day-to-day of a real Nigerian estate, from the gatehouse to
               the resident&apos;s phone.
             </p>
+          </ScrollReveal>
+          <ScrollReveal delayMs={240}>
             <div className="mt-9 flex flex-wrap gap-4">
               <a
                 href="#contact"

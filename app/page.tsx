@@ -11,6 +11,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import StickyBackdrop from "@/components/StickyBackdrop";
 import EstateAerialBackdrop from "@/components/EstateAerialBackdrop";
+import DownloadSection from "@/components/DownloadSection";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
         <PricingSection />
         <ContactSection />
       </StickyBackdrop>
+      <DownloadSection />
       <Footer />
     </div>
   );
