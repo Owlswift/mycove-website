@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { API_BASE_URL } from "@/lib/api";
+import { API_BASE_URL, SITE_URL } from "@/lib/api";
 
 export const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.zsolutionsit.mycove&hl=en";
@@ -46,5 +46,5 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(PLAY_STORE_URL, { status: 302 });
   }
 
-  return NextResponse.redirect(new URL("/#download", request.url), { status: 302 });
+  return NextResponse.redirect(`${SITE_URL}/#download`, { status: 302 });
 }
